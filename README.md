@@ -1,14 +1,4 @@
-## Hi there 👋
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>My website, no GPT</title>
-    </head>
-    <body>
-        <h1>-------------this is h1 which is the title - pretty big-------------</h1>
-        <p>-------------this is p which is the text content - small-------------</p>
-    </body>
-</html>
+
 <!--
 **AdmiraLahav/AdmiraLahav** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
