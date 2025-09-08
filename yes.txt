@@ -1,0 +1,18 @@
+# === Hotspot Config ===
+$ssid = "MyHotspot"
+$key  = "MyPassword123"   # at least 8 characters
+
+# === Check adapter support ===
+$driverInfo = netsh wlan show drivers
+if ($driverInfo -match "Hosted network supported\s*:\s*Yes") {
+    Write-Host "Adapter supports hosted network. Starting hotspot..."
+
+    # Configure the hotspot
+    netsh wlan set hostednetwork mode=allow ssid=$ssid key=$key
+
+    # Start the hotspot
+    netsh wlan start hostednetwork
+    Write-Host "Hotspot '$ssid' started with password '$key'"
+} else {
+    Write-Host "This Wi-Fi adapter does NOT support Hosted Network."
+}
