@@ -1,0 +1,28 @@
+using System;
+using System.Diagnostics;
+
+class Program
+{
+    static void Main()
+    {
+        // Create a new process
+        Process process = new Process();
+
+        // Set start info
+        process.StartInfo.FileName = "cmd.exe";              // the program to run
+        process.StartInfo.Arguments = "/c dir";              // the arguments (/c means "run command and exit")
+        process.StartInfo.RedirectStandardOutput = true;     // capture output
+        process.StartInfo.UseShellExecute = false;           // must be false for redirection
+        process.StartInfo.CreateNoWindow = true;             // don't show a new window
+
+        // Start the process
+        process.Start();
+
+        // Read the output
+        string output = process.StandardOutput.ReadToEnd();
+        process.WaitForExit();
+
+        // Print it to the C# console
+        Console.WriteLine(output);
+    }
+}
