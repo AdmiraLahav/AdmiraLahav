@@ -1,18 +1,33 @@
-# === Hotspot Config ===
-$ssid = "MyHotspot"
-$key  = "MyPassword123"   # at least 8 characters
+using System;
+using System.Diagnostics;
 
-# === Check adapter support ===
-$driverInfo = netsh wlan show drivers
-if ($driverInfo -match "Hosted network supported\s*:\s*Yes") {
-    Write-Host "Adapter supports hosted network. Starting hotspot..."
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a command to run: ");
+        string userCommand = Console.ReadLine();
 
-    # Configure the hotspot
-    netsh wlan set hostednetwork mode=allow ssid=$ssid key=$key
+        if (string.IsNullOrWhiteSpace(userCommand))
+        {
+            Console.WriteLine("No command entered. Exiting...");
+            return;
+        }
 
-    # Start the hotspot
-    netsh wlan start hostednetwork
-    Write-Host "Hotspot '$ssid' started with password '$key'"
-} else {
-    Write-Host "This Wi-Fi adapter does NOT support Hosted Network."
+        Process process = new Process();
+        process.StartInfo.FileName = "cmd.exe";                // Windows shell
+        process.StartInfo.Arguments = "/c " + userCommand;     // /c = run and exit
+        process.StartInfo.RedirectStandardOutput = true;
+        process.StartInfo.RedirectStandardError = true;
+        process.StartInfo.UseShellExecute = false;
+        process.StartInfo.CreateNoWindow = true;
+
+        process.OutputDataReceived += (sender, e) => { if (e.Data != null) Console.WriteLine(e.Data); };
+        process.ErrorDataReceived  += (sender, e) => { if (e.Data != null) Console.WriteLine("ERR: " + e.Data); };
+
+        process.Start();
+        process.BeginOutputReadLine();
+        process.BeginErrorReadLine();
+        process.WaitForExit();
+    }
 }
