@@ -5,16 +5,18 @@ using System.Threading;
 
 class Program
 {
-    // Store login credentials (in real life use encryption or external storage!)
     static string storedUsername = null;
     static string storedPassword = null;
+
+    // Change this to the folder where CMD should start:
+    static string currentDir = @"C:\Users\Public";
 
     static void Main()
     {
         Console.OutputEncoding = Encoding.UTF8;
         Console.WriteLine("=== Login System ===\n");
 
-        // Check if credentials exist
+        // First-time setup
         if (storedUsername == null || storedPassword == null)
         {
             Console.WriteLine("No user found. Let's create one.");
@@ -25,7 +27,7 @@ class Program
             Console.WriteLine("✅ Account created successfully!\n");
         }
 
-        // Login process
+        // Login phase
         bool loggedIn = false;
         while (!loggedIn)
         {
@@ -34,8 +36,8 @@ class Program
             Console.Write("Password: ");
             string password = Console.ReadLine();
 
-            Console.Write("\nLogging in ");
-            ShowProgressBar(30); // show progress bar while checking
+            Console.WriteLine("\nChecking credentials...");
+            SimulateLoginBar(100, 20); // use new download-style bar
 
             if (username == storedUsername && password == storedPassword)
             {
@@ -48,34 +50,58 @@ class Program
             }
         }
 
-        // Enter CMD mode
+        // CMD shell
         Console.WriteLine("=== CMD Mode ===");
         Console.WriteLine("Type 'exit' to quit.\n");
 
         while (true)
         {
-            Console.Write("CMD> ");
+            Console.Write($"CMD ({currentDir})> ");
             string cmd = Console.ReadLine();
 
             if (cmd.ToLower() == "exit")
                 break;
 
+            // Basic `cd` support
+            if (cmd.ToLower().StartsWith("cd "))
+            {
+                string newDir = cmd.Substring(3).Trim();
+                if (System.IO.Directory.Exists(newDir))
+                {
+                    currentDir = newDir;
+                    Console.WriteLine("📁 Directory changed.");
+                }
+                else
+                {
+                    Console.WriteLine("⚠️ Directory not found.");
+                }
+                continue;
+            }
+
             RunCmd(cmd);
         }
     }
 
-    // Simple text progress bar
-    static void ShowProgressBar(int steps)
+    // Your improved download-style progress bar
+    static void DrawBar(int current, int total, int width = 50)
     {
-        for (int i = 0; i <= steps; i++)
+        double progress = (double)current / total;
+        int filled = (int)(progress * width);
+        string bar = new string('#', filled) + new string('-', width - filled);
+        Console.Write($"\r[{bar}] {progress * 100:0.0}%");
+    }
+
+    // Use bar during login check
+    static void SimulateLoginBar(int total, int delayMs)
+    {
+        for (int i = 0; i <= total; i++)
         {
-            Console.Write("#");
-            Thread.Sleep(40); // simulate checking time
+            DrawBar(i, total);
+            Thread.Sleep(delayMs);
         }
         Console.WriteLine();
     }
 
-    // Run CMD commands and capture output
     static void RunCmd(string command)
     {
         try
@@ -85,7 +111,8 @@ class Program
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
                 UseShellExecute = false,
-                CreateNoWindow = true
+                CreateNoWindow = true,
+                WorkingDirectory = currentDir
             };
 
             Process process = new Process { StartInfo = psi };
