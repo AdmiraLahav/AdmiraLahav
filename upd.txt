@@ -1,0 +1,32 @@
+static void RunCmd(string command)
+{
+    try
+    {
+        ProcessStartInfo psi = new ProcessStartInfo("cmd.exe", "/c " + command)
+        {
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+            CreateNoWindow = true,
+
+            // 👇 Change this path to the folder you want commands to run from:
+            WorkingDirectory = @"C:\Users\YourUser\Desktop\MyScripts"
+        };
+
+        Process process = new Process { StartInfo = psi };
+        process.Start();
+
+        string output = process.StandardOutput.ReadToEnd();
+        string error = process.StandardError.ReadToEnd();
+        process.WaitForExit();
+
+        if (!string.IsNullOrWhiteSpace(output))
+            Console.WriteLine(output);
+        if (!string.IsNullOrWhiteSpace(error))
+            Console.WriteLine("⚠️ " + error);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("⚠️ Error: " + ex.Message);
+    }
+}
