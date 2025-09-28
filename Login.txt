@@ -1,0 +1,108 @@
+using System;
+using System.Diagnostics;
+using System.Text;
+using System.Threading;
+
+class Program
+{
+    // Store login credentials (in real life use encryption or external storage!)
+    static string storedUsername = null;
+    static string storedPassword = null;
+
+    static void Main()
+    {
+        Console.OutputEncoding = Encoding.UTF8;
+        Console.WriteLine("=== Login System ===\n");
+
+        // Check if credentials exist
+        if (storedUsername == null || storedPassword == null)
+        {
+            Console.WriteLine("No user found. Let's create one.");
+            Console.Write("New username: ");
+            storedUsername = Console.ReadLine();
+            Console.Write("New password: ");
+            storedPassword = Console.ReadLine();
+            Console.WriteLine("✅ Account created successfully!\n");
+        }
+
+        // Login process
+        bool loggedIn = false;
+        while (!loggedIn)
+        {
+            Console.Write("Username: ");
+            string username = Console.ReadLine();
+            Console.Write("Password: ");
+            string password = Console.ReadLine();
+
+            Console.Write("\nLogging in ");
+            ShowProgressBar(30); // show progress bar while checking
+
+            if (username == storedUsername && password == storedPassword)
+            {
+                Console.WriteLine("\n✅ Login successful!\n");
+                loggedIn = true;
+            }
+            else
+            {
+                Console.WriteLine("\n❌ Incorrect username or password. Try again.\n");
+            }
+        }
+
+        // Enter CMD mode
+        Console.WriteLine("=== CMD Mode ===");
+        Console.WriteLine("Type 'exit' to quit.\n");
+
+        while (true)
+        {
+            Console.Write("CMD> ");
+            string cmd = Console.ReadLine();
+
+            if (cmd.ToLower() == "exit")
+                break;
+
+            RunCmd(cmd);
+        }
+    }
+
+    // Simple text progress bar
+    static void ShowProgressBar(int steps)
+    {
+        for (int i = 0; i <= steps; i++)
+        {
+            Console.Write("#");
+            Thread.Sleep(40); // simulate checking time
+        }
+        Console.WriteLine();
+    }
+
+    // Run CMD commands and capture output
+    static void RunCmd(string command)
+    {
+        try
+        {
+            ProcessStartInfo psi = new ProcessStartInfo("cmd.exe", "/c " + command)
+            {
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
+
+            Process process = new Process { StartInfo = psi };
+            process.Start();
+
+            string output = process.StandardOutput.ReadToEnd();
+            string error = process.StandardError.ReadToEnd();
+            process.WaitForExit();
+
+            if (!string.IsNullOrWhiteSpace(output))
+                Console.WriteLine(output);
+            if (!string.IsNullOrWhiteSpace(error))
+                Console.WriteLine("⚠️ " + error);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("⚠️ Error: " + ex.Message);
+        }
+    }
+}
