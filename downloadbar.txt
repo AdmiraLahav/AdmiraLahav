@@ -1,0 +1,24 @@
+using System;
+using System.Threading;
+
+class Program
+{
+    static void DrawBar(int current, int total, int width = 50)
+    {
+        double progress = (double)current / total;
+        int filled = (int)(progress * width);
+        string bar = new string('#', filled) + new string('-', width - filled);
+        Console.Write($"\r[{bar}] {progress * 100:0.0}%");
+    }
+
+    static void Main()
+    {
+        int total = 100;
+        for (int i = 0; i <= total; i++)
+        {
+            DrawBar(i, total);
+            Thread.Sleep(50); // simulate work
+        }
+        Console.WriteLine("\nDone!");
+    }
+}
