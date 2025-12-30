@@ -1,6 +1,6 @@
 # 💫 About Me:
 I'm 15 years old, <br>Im a male,<br>I like experimenting with cool stuff<br>I am learning Python C# and Assembly
-https://img.shields.io/badge/test-default?label=test
+[https://img.shields.io/badge/test-default?label=test]
 
 
 # 💻 Things I Use:
