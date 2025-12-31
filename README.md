@@ -12,9 +12,6 @@ I'm 15 years old, <br>Im a male,<br>I like experimenting with cool stuff<br>I am
 ![](https://nirzak-streak-stats.vercel.app/?user=AdmiraLahav&theme=dark&hide_border=false)<br/>
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=AdmiraLahav&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
 
-## 🏆 GitHub Trophies
-![](https://github-profile-trophy.vercel.app/?username=AdmiraLahav&theme=radical&no-frame=true&no-bg=false&margin-w=4)
-
 ### ✍️ Random Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark)
 
