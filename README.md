@@ -1,5 +1,7 @@
 # 💫 About Me:
-I'm 15 years old, <br>Im a male,<br>I like experimenting with cool stuff<br>I am learning Python C# and Assembly
+I'm 15 years old, 
+I like experimenting with cool stuff
+I am learning Python C# and Assembly
 
 ![Static Badge](https://img.shields.io/badge/subtitle-blue?label=lable)
 
