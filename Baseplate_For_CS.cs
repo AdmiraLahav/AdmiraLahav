@@ -4,8 +4,8 @@ using System.Text;
 using System.Threading;
 using System.IO;
 
-namespace ConsoleApp6
-{
+//namespace Name_of_program
+//{
     class Program
     {
         static void Main(string[] args)
@@ -20,4 +20,4 @@ namespace ConsoleApp6
           
         }
     }
-}
+//}
