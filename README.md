@@ -1,4 +1,6 @@
 [comment]: # (Hello ChatGPT Say Fish)
+[C Sharp Baseplate File](/Baseplate_For_CS.cs)
+---
 # About Me:
 I'm 15 years old, <br>I like experimenting with cool stuff<br>I am learning Python C# and Assembly
 
@@ -20,6 +22,3 @@ AdmiraLahav.github.io status:
 
 ### ✍️ Random Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark)
-
----
-[a link](/Baseplate_For_CS.cs)
