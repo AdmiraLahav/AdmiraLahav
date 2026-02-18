@@ -36,14 +36,6 @@ AdmiraLahav.github.io status:
 ![Steam](https://img.shields.io/badge/steam-%23000000.svg?style=for-the-badge&logo=steam&logoColor=white) 
 ![EA](https://img.shields.io/badge/ea-%23000000.svg?style=for-the-badge&logo=ea&logoColor=white)
 
-Languages| C# | AssemblyScript | JavaScript | HTML5 | Python  
-Scripting| PowerShell | Bash | Windows Terminal  
-Frameworks| .NET | Node.js | NPM  
-Databases| MySQL | SQLite  
-Graphics| GIMP | Blender  
-DevOps & Cloud| Git | GitHub | Google Cloud | NVIDIA  
-Game Dev| Unity | Xbox | Steam | EA
-
 # 📊 GitHub Stats:
 ![](https://github-readme-stats.vercel.app/api?username=AdmiraLahav&theme=dark&hide_border=false&include_all_commits=true&count_private=true)<br/>
 ![](https://nirzak-streak-stats.vercel.app/?user=AdmiraLahav&theme=dark&hide_border=false)<br/>
