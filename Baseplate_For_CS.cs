@@ -11,10 +11,11 @@ using System.IO;
         static void Main(string[] args)
         {
             int length = 0;
-            int collumn| = 0;
-            int line- = 0;
+            int collumnI = 0;
+            int line_ = 0;
+            //Line is length in array
             int[] arr = new int[length];
-            int[,] matrix = new int[collumn|,line-];
+            int[,] matrix = new int[collumnI,line_];
             int num = int.Parse(Console.ReadLine());
           
             Console.WriteLine($"");
