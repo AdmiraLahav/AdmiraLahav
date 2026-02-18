@@ -11,13 +11,19 @@ using System.IO;
         static void Main(string[] args)
         {
             int length = 0;
-            int collumnI = 0;
-            int line_ = 0;
+            int rowI = 0;
+            int collumn_ = 0;
             //Line is length in array
             int[] arr = new int[length];
-            int[,] matrix = new int[collumnI,line_];
-            // matrix.GetLength(1) -> coll
-            // matrix.GetLength(0) -> line
+            int[,] matrix = new int[rowI,collumn_];
+            /*
+            (row, column)
+            (0,0) (0,1) (0,2)
+            (1,0) (1,1) (1,2)
+            (2,0) (2,1) (2,2)
+            */
+            // matrix.GetLength(1) -> collumn
+            // matrix.GetLength(0) -> row
             int num = int.Parse(Console.ReadLine());
           
             Console.WriteLine($"");
