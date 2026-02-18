@@ -16,6 +16,8 @@ using System.IO;
             //Line is length in array
             int[] arr = new int[length];
             int[,] matrix = new int[collumnI,line_];
+            // matrix.GetLength(1) -> coll
+            // matrix.GetLength(0) -> line
             int num = int.Parse(Console.ReadLine());
           
             Console.WriteLine($"");
