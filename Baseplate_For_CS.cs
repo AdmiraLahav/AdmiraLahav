@@ -11,8 +11,8 @@ using System.IO;
         static void Main(string[] args)
         {
             int length = 0;
-            int rowI = 0;
-            int collumn_ = 0;
+            int rowI = 0;//amuda ^ 0
+            int collumn_ = 0;//shura > 1
             // || amuda
             // -- shura
             int[] arr = new int[length];
