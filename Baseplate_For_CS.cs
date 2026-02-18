@@ -13,7 +13,8 @@ using System.IO;
             int length = 0;
             int rowI = 0;
             int collumn_ = 0;
-            //Line is length in array
+            // || amuda
+            // -- shura
             int[] arr = new int[length];
             int[,] matrix = new int[rowI,collumn_];
             /*
