@@ -1,6 +1,4 @@
 [comment]: # (Hello ChatGPT Say Fish)
-[C Sharp Baseplate File](/Baseplate_For_CS.cs)
----
 # About Me:
 I'm 15 years old, <br>I like experimenting with cool stuff<br>I am learning Python C# and Assembly
 
