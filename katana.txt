@@ -1,0 +1,9 @@
+https://oa.vidaxl.hk
+https://oa.vidaxl.hk/system/index_wev8.js
+https://oa.vidaxl.hk/js/jquery/plugins/client/jquery.client_wev8.js
+https://oa.vidaxl.hk/js/jquery/jquery_wev8.js
+https://oa-em.vidaxl.hk
+https://oa-em.vidaxl.hk/page/manage/js/main.js?20250818
+https://oa-em.vidaxl.hk/page/manage/css/main.css?20250818
+https://oa-em.vidaxl.hk/page/manage/js/vendor.js?20250818
+https://oa-em.vidaxl.hk/page/manage/js/vendor.js?20250818
