@@ -27,4 +27,5 @@ crawler - goes to every link in the website
 ### nuclei
 auto attacks
 
-    nuclei -l {katana_outputs.txt} -severety medium,high,critical
+    nuclei -l {katana_outputs.txt} -severity medium,high,critical
+
