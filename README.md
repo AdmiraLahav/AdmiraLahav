@@ -7,10 +7,6 @@ I'm 15 years old, <br>I like experimenting with cool stuff<br>I am learning Pyth
 ![GitHub User's stars](https://img.shields.io/github/stars/AdmiraLahav)
 ![GitHub followers](https://img.shields.io/github/followers/AdmiraLahav)
 
-AdmiraLahav.github.io status:
-
-![GitHub branch status](https://img.shields.io/github/checks-status/AdmiraLahav/AdmiraLahav.github.io/main)
-
 # 💻 Things I Use:
 ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white) 
 ![AssemblyScript](https://img.shields.io/badge/assembly%20script-%23000000.svg?style=for-the-badge&logo=assemblyscript&logoColor=white) 
