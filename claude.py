@@ -99,29 +99,27 @@ def safe_addstr(win, y, x, text, attr=0):
     except curses.error:
         pass
 
-def hline(win, y, x, ch, n, attr=0):
+def hline_str(win, y, x, ch, n, attr=0):
+    """Draw n copies of ch using addstr so color attrs always apply on Linux."""
     max_y, max_x = win.getmaxyx()
-    if y < 0 or y >= max_y:
+    if y < 0 or y >= max_y or x >= max_x - 1:
         return
     n = min(n, max_x - x - 1)
     if n <= 0:
         return
-    try:
-        win.hline(y, x, ch, n, attr)
-    except curses.error:
-        pass
+    safe_addstr(win, y, x, ch * n, attr)
 
 def draw_box(win, y, x, h, w, title="", color=C_BLUE):
-    """Draw a rounded-ish border, clipped to win."""
+    """Draw a rounded border, clipped to win, with working colors on Linux."""
     max_y, max_x = win.getmaxyx()
     attr = curses.color_pair(color) | curses.A_BOLD
     # top
     safe_addstr(win, y,     x,     "╭", attr)
-    hline(      win, y,     x+1,   ord("─"), w-2, attr)
+    hline_str(  win, y,     x+1,   "─", w-2, attr)
     safe_addstr(win, y,     x+w-1, "╮", attr)
     # bottom
     safe_addstr(win, y+h-1, x,     "╰", attr)
-    hline(      win, y+h-1, x+1,   ord("─"), w-2, attr)
+    hline_str(  win, y+h-1, x+1,   "─", w-2, attr)
     safe_addstr(win, y+h-1, x+w-1, "╯", attr)
     # sides
     for row in range(y+1, min(y+h-1, max_y)):
@@ -276,7 +274,7 @@ def draw_scripts(win, y, x, h, w):
     if show_desc:
         safe_addstr(win, y+1, hx+col_num+col_name,     "DESC",    hdr_attr)
     safe_addstr(win, y+1, x+w-col_runs-2,              "RUNS",    hdr_attr)
-    hline(win, y+2, x+1, ord("─"), w-2, curses.color_pair(C_BLUE))
+    hline_str(win, y+2, x+1, "─", w-2, curses.color_pair(C_BLUE))
 
     max_rows = h - 4   # box top+hdr+divider+bottom
     for i, (name, _, desc) in enumerate(SCRIPTS):
@@ -345,7 +343,7 @@ def draw_statusbar(win, y, x, w, cols, rows):
                "running": curses.color_pair(C_GREEN)   | curses.A_BOLD,
                "output":  curses.color_pair(C_MAGENTA) | curses.A_BOLD,
             }.get(S.mode, 0)
-    hline(win, y, x, ord("─"), w, curses.color_pair(C_BLUE))
+    hline_str(win, y, x, "─", w, curses.color_pair(C_BLUE))
     left  = f"  ◈ MODE:"
     right = f"UP:{sess}  {now}  {cols}×{rows}  "
     safe_addstr(win, y+1, x,          left,           curses.color_pair(C_WHITE) | curses.A_BOLD)
