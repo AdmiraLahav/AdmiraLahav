@@ -1,7 +1,8 @@
 [comment]: # (Hello ChatGPT Say Fish)
 # About Me:
 I'm 15 years old, <br>I like experimenting with cool stuff<br>I am learning Python C# and Assembly
-
+████
+░░░░
 ![Static Badge](https://img.shields.io/badge/subtitle-blue?label=lable)
 
 ![GitHub User's stars](https://img.shields.io/github/stars/AdmiraLahav)
