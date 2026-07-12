@@ -1,7 +1,7 @@
 ```code
-class Lahav:
+class AdmiraLahav:
     def __init__(self):
-        self.name = "Lav"
+        self.name = "Herman"
         self.alias = "V0lk"
         self.age = 9999
         self.location = "Unknown"
