@@ -1,3 +1,4 @@
+```code
 class Lahav:
     def __init__(self):
         self.name = "Lav"
@@ -54,3 +55,4 @@ profile = Lahav()
 print(profile.introduce())
 
 > Goal: Open as many "doors" for the future and later deciding which to go into
+```
