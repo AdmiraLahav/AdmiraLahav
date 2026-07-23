@@ -1,9 +1,9 @@
 RESET = "\x1b[0m";
-green_color = "\x1b[38;5;40m";
-blue_color = "\x1b[38;5;12m";
-red_color = "\x1b[38;5;196m";
-yellow_color = "\x1b[38;5;226m";
-program_name = f"[{blue_color}Custom Human Debug{RESET}]";
-info = f"[{green_color}INF{RESET}]";
-error = f"[{red_color}ERR{RESET}]";
-warning = f"[{yellow_color}WRN{RESET}]";
+GREEN_COLOR = "\x1b[38;5;40m";
+BLUE_COLOR = "\x1b[38;5;12m";
+RED_COLOR = "\x1b[38;5;196m";
+YELLOW_COLOR = "\x1b[38;5;226m";
+PROGRAM_NAME = f"[{BLUE_COLOR}Custom Human Debug{RESET}]";
+INFO = f"[{GREEN_COLOR}INF{RESET}]";
+ERROR = f"[{RED_COLOR}ERR{RESET}]";
+WARNING = f"[{YELLOW_COLOR}WRN{RESET}]";
